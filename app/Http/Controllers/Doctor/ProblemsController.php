@@ -21,7 +21,7 @@ class ProblemsController
 	{
 		$rslt = [];
 		$i = 0;
-		for ($j = 0; $j < rand(0,30); $j++) {
+		for ($j = 0; $j < rand(6,30); $j++) {
 			$i += rand(1, 60*24);
 			$rslt[] = (object) [
 				'datetime' => now()->subDays(10)->addminutes($i),
