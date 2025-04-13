@@ -67,4 +67,7 @@
 			@include('doctor.patients.@compontents.actions')
 		</div>
 	</div>
+
+
 @endsection
+
