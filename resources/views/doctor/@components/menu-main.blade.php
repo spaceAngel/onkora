@@ -24,6 +24,11 @@
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="#">K řešení</a>
+		<a class="nav-link   {{isset($currentPage) && $currentPage== 'problems' ? 'active' : ''}}"
+			href="{{route('doctor.problems.index')}}"
+		>
+			<span class="fa fa-warning"></span>
+			Hlášené obtíže
+		</a>
 	</li>
 </ul>

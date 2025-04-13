@@ -55,17 +55,17 @@ class PatientsController
 	{
 		$rslt = [];
 		$i = 0;
-		for ($i = 0; $i < rand(0,6); $i++) {
+		for ($j = 0; $j < rand(0,20); $j++) {
 			$i += rand(1, 60*24);
 			$rslt[] = (object) [
 				'datetime' => now()->subDays(10)->addminutes($i),
-				'tyoe' => ProblemType::cases()[array_rand(ProblemType::cases())],
-				'seeen_by' => rand(0, 1) == 1 ? Factory::create('cs_CZ')->name : null,
+				'type' => ProblemType::cases()[array_rand(ProblemType::cases())],
+				'seen_by' => rand(0, 1) == 1 ? Factory::create('cs_CZ')->name : null,
 				'seen_at' => now()->subDays(10)->addminutes($i)->addMicros(rand(1, 300)),
 
 			];
 		}
-		return $rslt;
+		return array_reverse($rslt);
 	}
 
 	protected function getFakePatients(int $count = 10): array
