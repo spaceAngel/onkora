@@ -8,41 +8,8 @@ schemes:
   - https
 paths:
   /events:
-    put:
-      summary: plan event for patient
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                birth_number:
-                  type: string
-                datetime:
-                  tyoe: string
-                  format: date-time
-                event_type:
-                  type: string
-                  enum: [appointment, laboratory, ct, mri, physiotherapy, chemotherapy, radiotherapy]
-                patient_note:
-                  type: string
-      responses:
-        "200":
-          description: Event created
-          content:
-            application/json:
-              schema:
-                type: object
-              examples:
-                response:
-                  value:
-                    {"event_id": 25}
-        "404":
-          description: patient not found
-        "422":
-          description: unknown event type or invalid date
     post:
-      summary: modify event for patient
+      summary: create or modify event for patient
       requestBody:
         content:
           application/json:
@@ -73,7 +40,7 @@ paths:
         "422":
           description: unknown event type or invalid date
   /interventions:
-    put:
+    post:
       summary: add intervention to patient
       requestBody:
         content:
