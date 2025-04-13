@@ -1,0 +1,107 @@
+swagger: "2.0"
+info:
+  title: Onkora
+  description: Basic api for onkora app
+  version: 1.0.0-beta
+host: www
+schemes:
+  - https
+paths:
+  /events:
+    put:
+      summary: plan event for patient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                birth_number:
+                  type: string
+                datetime:
+                  tyoe: string
+                  format: date-time
+                event_type:
+                  type: string
+                  enum: [appointment, laboratory, ct, mri, physiotherapy, chemotherapy, radiotherapy]
+                patient_note:
+                  type: string
+      responses:
+        "200":
+          description: Event created
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                response:
+                  value:
+                    {"event_id": 25}
+        "404":
+          description: patient not found
+        "422":
+          description: unknown event type or invalid date
+    post:
+      summary: modify event for patient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                birth_number:
+                  type: string
+                datetime:
+                  tyoe: string
+                  format: date-time
+                state:
+                  type: string
+                  enum: ['attender', 'missed', 'cancelled']
+      responses:
+        "200":
+          description: Event created
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                response:
+                  value:
+                    {"event_id": 25}
+        "404":
+          description: patient not found
+        "422":
+          description: unknown event type or invalid date
+  /interventions:
+    put:
+      summary: add intervention to patient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                birth_number:
+                  type: string
+                event_date:
+                  type: string
+                  format: date-time
+                type:
+                  type: string
+                  enum: ["ANALGETICS_NEW", 'ANLGETICS_INCREASE', "RADIOTHERAPY"]
+      responses:
+        "200":
+          description: Intervention created
+          content:
+            application/json:
+              schema:
+                type: object
+                examples:
+                  response:
+                    value:
+                     { "intervention_id": 25 }
+        "404":
+          description: patient not found
+        "422":
+           description: unknown intervention type or invalid date
+

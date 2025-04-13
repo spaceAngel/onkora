@@ -1,0 +1,27 @@
+@import 'bootstrap/scss/bootstrap';
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+.js-link {
+  cursor:pointer;
+}
+
+.img-logo {
+  height: 100px;
+}
+
+ .state-confirmed {color:green;}
+ .state-cancelled {color:orange;}
+ .state-missed {color:red;}
+
+.statebox-confirmed {background-color:green;}
+.statebox-cancelled {background-color:orange;}
+.statebox-missed {background-color:red;}
+.statebox {
+  display:inline-block;
+  width:10px;
+  height: 15px;
+}
+
+.fa-warning {
+  color: red;
+}
