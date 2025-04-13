@@ -88,8 +88,8 @@ class PatientsController
 			'birth_number' => $this->getFakeBirthNumber(Str::contains($name, 'á ')),
 			'pain_avg' => rand(0, 10),
 			'pain_trend' => rand(-200, 200),
-			'messages_unread' => rand(0, 1),
-			'problems_unread' => rand(0, 1),
+			'messages_unread' => rand(-3, 1),
+			'problems_unread' => rand(-3, 1),
 		];
 	}
 
